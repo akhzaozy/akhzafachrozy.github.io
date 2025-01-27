@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Akhza Fachrozy</title>
-    <!-- Link ke file CSS terpisah -->
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +12,6 @@
 </head>
 
 <body>
-    <!-- Div untuk Navbar -->
     <div id="navbar">Loading...</div>
 
     <div class="section" id="home">
@@ -33,7 +31,6 @@
 
     <div class="section" id="about">
         <h1>About Me</h1>
-        <!-- Main Card for About Me -->
         <div class="about-card">
             <div class="about-circle left"></div> 
             <div class="about-circle right"></div> 
@@ -79,7 +76,7 @@
     </div>
     
 
-    <!-- My Portfolio Section -->
+    <!-- portofolio -->
 <div class="section" id="portfolio">
     <h1>My Portfolio</h1>
     <div class="portfolio-card">
@@ -104,7 +101,7 @@
 
 <div class="section" id="contact">
     <h1>Social Media</h1>
-    <!-- Social Media Links -->
+    <!-- sosialmedias -->
     <div class="social-links" style="margin-top: 20px;">
         <a href="https://www.instagram.com/akhzaafachrozy" target="_blank" class="social-icon" title="Instagram">
             <i class="fab fa-instagram"></i>
@@ -120,7 +117,6 @@
 
 
     <script>
-        // JavaScript to load the navbar.html content into the navbar div
         fetch('navbar.html')
             .then(response => response.text())
             .then(data => {
@@ -129,7 +125,6 @@
             .catch(error => console.error('Error loading navbar:', error));
         </script>
     <script>
-        // Function to check if an element is in the viewport
             function isElementInViewport(el) {
                 const rect = el.getBoundingClientRect();
                 return (
@@ -140,7 +135,6 @@
                 );
             }
 
-            // Function to handle scroll event and trigger fade-in animation
             function handleScroll() {
                 const fadeInElements = document.querySelectorAll('.fade-in');
                 fadeInElements.forEach((element) => {
@@ -150,53 +144,45 @@
                 });
             }
 
-            // Smooth scroll to about section
         const aboutBtn = document.querySelector('.btn-about');
         aboutBtn.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default anchor link behavior
-            
+            event.preventDefault();
             const aboutSection = document.querySelector('#about');
             window.scrollTo({
-                top: aboutSection.offsetTop - 50, // Offset by 50px from the top
+                top: aboutSection.offsetTop - 50, 
                 behavior: 'smooth'
             });
 
-            // Trigger animation when "About" section becomes visible
             setTimeout(() => {
-                aboutSection.classList.add('visible'); // Make about section visible
-                handleScroll(); // Trigger fade-in for the elements inside
-            }, 500); // Wait for the smooth scroll animation to finish
+                aboutSection.classList.add('visible'); 
+                handleScroll(); 
+            }, 500); 
         });
 
-        // Call the handleScroll() on page load and on scroll event
         window.addEventListener('load', handleScroll);
         window.addEventListener('scroll', handleScroll);
 
 </script>
 <script>
-    // Create an intersection observer to trigger when the portfolio section is visible
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         // If the section is in view
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible'); // Add the 'visible' class
-          observer.unobserve(entry.target); // Stop observing once the section is visible
+          entry.target.classList.add('visible'); 
+          observer.unobserve(entry.target); 
         }
       });
-    }, { threshold: 0.5 }); // Trigger when 50% of the section is in view
+    }, { threshold: 0.5 }); 
   
-    // Observe the portfolio section
     const portfolioSection = document.querySelector('#portfolio');
     observer.observe(portfolioSection);
     
-    // Observe portfolio items
     const portfolioItems = document.querySelectorAll('.portfolio-item');
     portfolioItems.forEach(item => {
       observer.observe(item);
     });
   </script>
   
-<!-- Footer Section -->
 <footer style="background-color: #000; color: #fff; text-align: center; padding: 20px;">
     <p>&copy; akhzafachrozy 2025</p>
 </footer>
