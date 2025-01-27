@@ -5,21 +5,26 @@
         <li><a href="#portfolio" onclick="navigateTo(event, 'portfolio.html')">My Portfolio</a></li>
         <li><a href="#contact" onclick="navigateTo(event, 'contact.html')">Contact</a></li>
     </ul>
-<script>
-    // JavaScript for navigation and fade-out effect
-    function navigateTo(event, url) {
-        event.preventDefault(); // Prevent default link behavior
-        
-        const currentURL = window.location.href;
-        if (url === currentURL) return; // Skip navigation if already on the same page
+    <div class="hamburger" onclick="toggleMenu()">
+        &#9776;
+    </div>
 
-        // Add fade-out class to body
-        document.body.classList.add('fade-out');
+    <script>
+        function navigateTo(event, url) {
+            event.preventDefault(); 
+            
+            const currentURL = window.location.href;
+            if (url === currentURL) return; 
+            document.body.classList.add('fade-out');
 
-        // Wait for fade-out to complete before redirecting
-        setTimeout(() => {
-            window.location.href = url; // Navigate to the new page
-        }, 300); // Duration of fade-out effect (match the transition time in CSS)
-    }
-</script>
+            setTimeout(() => {
+                window.location.href = url; 
+            }, 300); 
+        }
+
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('active');
+        }
+    </script>
 </body>
