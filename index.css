@@ -15,7 +15,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0); /* Slight transparent background */
+    background-color: rgba(0, 0, 0, 0.7); /* Slight transparent background */
     list-style: none;
     display: flex;
     justify-content: center;
@@ -24,11 +24,12 @@ body {
     margin: 0;
     padding: 0;
     z-index: 999;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
 /* Navbar list item styles */
 .navbar li {
-    margin: 0 15px;
+    margin: 0 20px; /* Adjusted margin for better spacing */
 }
 
 /* Navbar link styles */
@@ -37,7 +38,8 @@ body {
     color: #FFFFFF;
     font-size: 18px;
     font-weight: bold;
-    padding: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and color */
 }
 
@@ -45,7 +47,6 @@ body {
 .navbar li a:hover {
     background-color: lightblue;
     color: #000;
-    border-radius: 5px;
 }
 
 /* Fade-out Effect */
@@ -58,6 +59,51 @@ body.fade-out {
 html {
     scroll-behavior: smooth;
 }
+
+/* Responsive styles for small screens (mobile devices) */
+@media (max-width: 768px) {
+    /* Navbar becomes a vertical list and hidden by default */
+    .navbar {
+        flex-direction: column;
+        height: auto; /* Allow navbar height to adjust for mobile */
+        background-color: rgba(0, 0, 0, 0); /* Slightly darker background for mobile */
+        display: none; /* Initially hidden */
+        position: absolute;
+        top: 60px; /* Position it below the header */
+        width: 100%;
+        padding: 0;
+    }
+
+    /* Display the navbar when active */
+    .navbar.active {
+        display: block;
+    }
+
+    .navbar li {
+        margin: 10px 0; /* Add vertical spacing for mobile items */
+    }
+
+    /* Show the hamburger menu on mobile */
+    .hamburger {
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        color: #fff;
+        padding: 10px;
+    }
+
+    /* Make navbar items centered in mobile view */
+    .navbar li a {
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+/* Make the hamburger icon hidden on large screens */
+.hamburger {
+    display: none;
+}
+
 
 /* Section Styles */
 .section p {
